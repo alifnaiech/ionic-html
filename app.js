@@ -4,6 +4,7 @@ const btnCancel = document.querySelector('#btn-cancel');
 const btnAdd = document.querySelector('#btn-add');
 const expenseList = document.querySelector('#expense-list');
 const totalExpensesOutput = document.querySelector('#total-expenses');
+const ionAlertController = document.querySelector('ion-alert-controller');
 
 const clear = ()=>{
          reasonInput.value='';
@@ -14,8 +15,10 @@ totalExpenses = 0;
 btnAdd.addEventListener('click', ()=>{
     enteredReason = reasonInput.value;
     enteredAmount = amountInput.value;
+    
+    
     if(enteredReason.trim().length <=0 || enteredAmount <=0 ){
-        return;
+        return alert('Invalid inputs');
     }
     const newItem = document.createElement('ion-item');
     newItem.textContent = enteredReason + ' ' + enteredAmount + ' $';
